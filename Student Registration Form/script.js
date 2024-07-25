@@ -1,0 +1,40 @@
+function checkPassword() {
+  let password = document.getElementById("password").value;
+  let confirmPassword = document.getElementById("confirm-password").value; // Corrected variable name
+  console.log(password, confirmPassword); // Fixed console.log statement
+  let message = document.getElementById("message");
+  if (password.length !== 0) {
+    if (password === confirmPassword) {
+      message.textContent = "Password match";
+      message.style.color = "#00FF00";
+
+      alert("Form successfully submitted!");
+
+    } else {
+      message.textContent = "Password does not match";
+      message.style.color = "#FF0000";
+    }
+  } else {
+    alert("All details are compulsory. Please fill all details.");
+    message.textContent = "";
+  }
+}
+
+var uploadField = document.getElementById("myfile");
+
+uploadField.onchange = function() {
+  if (this.files[0].size > 102400) {
+    alert("File is too big! File size should be 100kb.");
+    this.value = "";
+  }
+};
+
+document.querySelector('form').onsubmit = function(event) {
+  event.preventDefault(); // Prevent the default form submission
+  // Add any additional validation or processing here if needed
+
+  alert("Form successfully submitted!");
+
+  // If you're using a server or need to handle form data submission, uncomment the line below:
+  // this.submit(); // Submit the form after showing the alert
+};
