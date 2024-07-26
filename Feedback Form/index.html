@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Feedback System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Course Feedback System</h1>
+        <div id="role-selection">
+            <button onclick="showForm('student')">Student</button>
+            <button onclick="showForm('teacher')">Teacher</button>
+        </div>
+        
+        <form id="student-form" style="display: none;">
+            <h2>Student Feedback</h2>
+            <label for="student-name">Name (alphabets only):</label>
+            <input type="text" id="student-name" required>
+            
+            <label for="student-id">Student ID (8 digits, Numbers only):</label>
+            <input type="text" id="student-id" pattern="\d{8}" title="Please enter an 8-digit number" required>
+            
+            <label for="attendance">Attendance Percentage (0-100, up to 2 decimal places):</label>
+            <input type="number" id="attendance" min="0" max="100" step="0.01" required>
+            
+            <h3>Course Feedback</h3>
+            <label for="course-rating">Course Rating:</label>
+            <select id="course-rating" required>
+                <option value="">Select a rating</option>
+                <option value="5">Excellent</option>
+                <option value="4">Good</option>
+                <option value="3">Average</option>
+                <option value="2">Below Average</option>
+                <option value="1">Poor</option>
+            </select>
+            
+            <label for="course-feedback">Course Feedback:</label>
+            <textarea id="course-feedback" rows="4" required></textarea>
+            
+            <h3>Teacher Feedback</h3>
+            <label for="teacher-rating">Teacher Rating:</label>
+            <select id="teacher-rating" required>
+                <option value="">Select a rating</option>
+                <option value="5">Excellent</option>
+                <option value="4">Good</option>
+                <option value="3">Average</option>
+                <option value="2">Below Average</option>
+                <option value="1">Poor</option>
+            </select>
+            
+            <label for="teacher-feedback">Teacher Feedback:</label>
+            <textarea id="teacher-feedback" rows="4" required></textarea>
+            
+            <button type="reset">Reset Form</button>
+            <button type="submit" onclick="submitStudentFeedback(event)">Submit Feedback</button>
+        </form>
+        
+        <form id="teacher-form" style="display: none;">
+            <h2>Teacher Feedback</h2>
+            <label for="teacher-name">Name:</label>
+            <input type="text" id="teacher-name" required>
+            
+            <label for="student-select">Select Student:</label>
+            <select id="student-select" required>
+                <option value="">Select a student</option>
+                <!-- Add options dynamically using JavaScript -->
+            </select>
+            
+            <label for="student-performance">Student Performance:</label>
+            <select id="student-performance" required>
+                <option value="">Select a rating</option>
+                <option value="5">Excellent</option>
+                <option value="4">Good</option>
+                <option value="3">Average</option>
+                <option value="2">Below Average</option>
+                <option value="1">Poor</option>
+            </select>
+            
+            <label for="teacher-comments">Comments:</label>
+            <textarea id="teacher-comments" rows="4" required></textarea>
+            
+            <button type="reset">Reset Form</button>
+            <button type="submit" onclick="submitTeacherFeedback(event)">Submit Feedback</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
